@@ -21,8 +21,89 @@ public class Main {
         String telefone = "";
         String email = "";
         Cliente cliente = new Cliente(nome, endereco, telefone, email);
+        Scanner scanner = new Scanner(System.in);
 
         Document.alert("Bem vindo a pizzaria da FAG!");
+        System.out.println("Qual tamanho de pizza deseja? (P, M, G ou Mista)");
+        System.out.println(("Digite exatamente como está pedindo."));
+        String tamanho = scanner.next();
+
+        double preco = 0.0;
+        switch (tamanho.toUpperCase()) {
+            case "P":
+                System.out.println("Você escolheu uma pizza pequena.");
+                preco = 25.0;
+                break;
+            case "M":
+                System.out.println("Você escolheu uma pizza média.");
+                preco = 32.0;
+                break;
+            case "G":
+                System.out.println("Você escolheu uma pizza grande.");
+                preco = 34.0;
+                break;
+            case "MISTA":
+                System.out.println("Você escolheu uma pizza mista. Escolha o primeiro sabor: (Chocolate, Nutella com morango, Abacaxi com canela,Brigadeiro, Prestígio )");
+                String sabor1 = scanner.next();
+                System.out.println("Escolha o segundo sabor: (Pepperoni, Quatro Queijos, Calabresa, Atum, Frango catupiry)");
+                String sabor2 = scanner.next();
+                System.out.println("Qual tamanho de pizza você deseja? (P, M, G)");
+                String tamanhoMista = scanner.next();
+                switch (tamanhoMista.toUpperCase()) {
+                    case "Chocolate":
+                        preco = 30.0;
+                        break;
+                    case "Nutella com morango":
+                        preco = 37.0;
+                        break;
+                    case "Abacaxi com canela":
+                        preco = 34.0;
+                        break;
+                    case "Brigadeiro":
+                        preco = 36.0;
+                        break;
+                    case "Prestígio":
+                        preco = 37.0;
+                        break;
+                }
+                if (sabor1.contains("Chocolate")) {
+                    preco += 3.0;
+                }
+                if (sabor1.contains("Nutella com morango")) {
+                    preco += 4.0;
+                }
+                if (sabor1.contains("Abacaxi com canela")) {
+                    preco += 2.0;
+                }
+                if (sabor1.contains("Brigadeiro")) {
+                    preco += 5.0;
+                }
+                if (sabor1.contains("Prestígio")) {
+                    preco += 5.0;
+                }
+                if (sabor2.contains("Pepperoni")) {
+                    preco += 3.0;
+                }
+                if (sabor2.contains("Quatro Queijos")) {
+                    preco += 4.0;
+                }
+                if (sabor2.contains("Calabresa")) {
+                    preco += 2.0;
+                }
+                if (sabor2.contains("Atum")) {
+                    preco += 5.0;
+                }
+                if (sabor2.contains("Frango Catupiry")) {
+                    preco += 5.0;
+                }
+                break;
+            default:
+                System.out.println("Opção inválida!");
+                break;
+        }
+        if (preco > 0.0) {
+            System.out.printf("O preço da pizza %s é R$37.00", tamanho.toUpperCase(), preco);
+        }
 
         Object [] tipoPedido = {"Delivery", "Retirar no Balcao", "La carte"};
 
@@ -90,7 +171,7 @@ public class Main {
         }
 
 
-        Object [] tipoPizza = {"Salgada", "Doce", "Mista", };
+        Object [] tipoPizza = {"Salgada", "Doce",};
         int scanTipoSabor = JOptionPane.showOptionDialog(null, "Escolha o tipo da pizza:", "Pizzaria", 0, 3, null, tipoPizza, "");
 
 
@@ -114,15 +195,6 @@ public class Main {
             }
 
         }
-        else {
-            Document.writee("Pizzas mistas:");
-            for (Pizza pizza : pizzas) {
-                if (pizza.getTipo().equals("Mista")){
-                    System.out.println(pizza.getCodigo() + " - " + pizza.getMista() + " (" + pizza.getTipo() + "): R$" + pizza.getValor());
-                }
-            }
-        }
-
 
         String pizzaSelecionada = null;
         float precoPizza = 0;
@@ -221,12 +293,12 @@ public class Main {
             Document.writee("\n"+ pedido.getCliente() +"! Seu pedido está pronto, venha no balcão !");
         }
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner scannere = new Scanner(System.in);
         String scanConfirm = null;
 
         while(scanConfirm == null) {
             Document.writee("Para confirmar a compra digite \"sim\", digite \"nao\" para cancelar.");
-            scanConfirm = scanner.nextLine();
+            scanConfirm = scannere.nextLine();
 
             if(scanConfirm.equals("sim")) {
                 Document.alert("Compra concluída! Muito obrigado, volte sempre!");

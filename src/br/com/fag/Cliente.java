@@ -4,14 +4,13 @@ public class Cliente {
     private String nome;
     private String endereco;
     private String telefone;
-    private String email;
 
-    public Cliente(String nome, String endereco, String telefone, String email){
+
+    public Cliente(String nome, String endereco, String telefone){
 
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
-        this.email = email;
 
     }
     public String getNome() {
@@ -30,10 +29,6 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getEndereco() {
         return endereco;
     }
@@ -42,7 +37,4 @@ public class Cliente {
         return telefone;
     }
 
-    public String getEmail() {
-        return email;
-    }
 }

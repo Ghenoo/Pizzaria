@@ -14,14 +14,12 @@ public class Main {
 
         //Boa professor, nunca tinha mexido com java antes e acabei gostando depois desse trabalho, tive q aprender bastante coisa pra fazer esse projeto.
         //Precisei usar stackoverflow, baeldung, dev media,  videos no youtube, chat gpt e outros lugares para conseguir realizar o projeto.
-        //Está com bastante bug de só funcionar se a letra tiver maíuscula ou só minuscula e outros, ainda estou aprendendo a resolver.
 
 
         String nome = "";
         String endereco = "";
         String telefone = "";
-        String email = "";
-        Cliente cliente = new Cliente(nome, endereco, telefone, email);
+        Cliente cliente = new Cliente(nome, endereco, telefone);
         Scanner scanner = new Scanner(System.in);
 
         Document.alert("Bem vindo a pizzaria da FAG!");
@@ -120,13 +118,12 @@ public class Main {
             Document.alert("Você escolheu Delivery! Vamos precisar fazer um cadastro breve. ");
             nome = Document.prompt("Por favor, informe o seu nome");
             endereco = Document.prompt("Agora, informe o seu endereco");
+            endereco = Document.prompt("Um complemento do seu endereco");
             telefone = Document.prompt("Informe o seu telefone");
-            email = Document.prompt("E por ultimo informe o seu email");
 
             cliente.setNome(nome);
             cliente.setEndereco(endereco);
             cliente.setTelefone(telefone);
-            cliente.setEmail(email);
 
             tipo = "Delivery";
 
@@ -136,13 +133,12 @@ public class Main {
             Document.alert("Você escolheu Reitrar no Balcao! Será necessário fazer um cadastro. ");
             nome = Document.prompt("Por favor, informe o seu nome");
             endereco = Document.prompt("Agora informe o seu endereco");
+            endereco = Document.prompt("Um complemento do seu endereco");
             telefone = Document.prompt("Informe o seu telefone");
-            email = Document.prompt("E por ultimo informe o seu email");
 
             cliente.setNome(nome);
             cliente.setEndereco(endereco);
             cliente.setTelefone(telefone);
-            cliente.setEmail(email);
 
             tipo = "Retirada no Balcao";
 
@@ -280,7 +276,6 @@ public class Main {
         Document.writee("Cliente: "+ pedido.getCliente());
         Document.writee("Endereco: "+ cliente.getEndereco());
         Document.writee("Telefone: "+ cliente.getNome());
-        Document.writee("Email: "+ cliente.getEmail());
         Document.writee("Tipo de Pedido: "+ pedido.getTipo());
         Document.writee("Pizza: sabor "+ pedido.getPizza());
         Document.writee("Bebida: "+ pedido.getBebida());

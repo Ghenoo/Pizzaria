@@ -14,6 +14,7 @@ public class Main {
 
         //Boa professor, nunca tinha mexido com java antes e acabei gostando depois desse trabalho, tive q aprender bastante coisa pra fazer esse projeto.
         //Precisei usar stackoverflow, baeldung, dev media,  videos no youtube, chat gpt e outros lugares para conseguir realizar o projeto.
+        //Está com bastante bug de só funcionar se a letra tiver maíuscula ou só minuscula e outros, ainda estou aprendendo a resolver.
 
 
         String nome = "";
